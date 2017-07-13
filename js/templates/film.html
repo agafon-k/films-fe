@@ -1,0 +1,11 @@
+<img src='images/{{= it.imageSrc}}.jpg'>
+<p class='films-item__title'>{{= it.title || ''}}</p>
+<p class='films-item__imdbId'>{{= it.imdbId || ''}}</p>
+<p class='films-item__releaseCountry'>{{=it.releaseCountry || ''}}</p>
+<p class='films-item__releaseYear'>{{=it.releaseYear || ''}}</p>
+<p class='films-item__raiting'>{{=it.raiting || ''}}</p>
+<div class="buttons">
+    <div class="btn edit-btn">Edit</div>
+    <div class="btn delete-btn">Delete</div>
+</div>
+<div class='films-item__comment'>{{=it.comment || ''}}</div>

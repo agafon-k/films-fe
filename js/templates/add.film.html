@@ -1,0 +1,13 @@
+<h1>Add new film</h1>
+<div class='add-film'>
+    <form class='add-new-film'>
+        <input type='text' name='film-title' maxlength="255" placeholder='Type title of the film' value="{{= it.title || ''}}">
+        <input type='text' name='film-imdbId' maxlength="30" placeholder='Type imdbId of the film' value="{{= it.imdbId || ''}}">
+        <input type='text' name='film-releaseCountry' maxlength="255" placeholder='Type release country of the film' value="{{=it.releaseCountry || ''}}">
+        <input type='text' name='film-releaseYear' maxlength="4" placeholder='Type release year of the film' value="{{=it.releaseYear || ''}}">
+        <input type='text' name='film-rating' maxlength="2" placeholder='Type rating' value="{{=it.rating || ''}}">
+        <textarea name='comment'>{{=it.comment || ''}}</textarea>
+
+        <button class='btn create-btn add-btn'>Add film</button>
+    </form>
+</div>

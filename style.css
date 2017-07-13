@@ -1,0 +1,178 @@
+body {
+    margin: 0;
+}
+
+body.disabled {
+    overflow: hidden;
+}
+
+body.disabled .overlay {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    z-index: 100;
+    background: #dedede;
+    opacity: .2;
+}
+
+#main {
+    max-width: 1236px;
+    margin: 0 auto;
+    font-family: sans-serif;
+    padding-top: 110px;
+}
+
+.header {
+    top: 0;
+    background: #fff;
+    max-width: 1236px;
+    position: fixed;
+    width: 100%;
+    padding: 40px 0 0;
+}
+
+h1 {
+    text-align: center;
+    margin: 0;
+}
+
+img {
+    width: 10%;
+    max-height: 10%;
+}
+
+.buttons {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.btn {
+    font-size: 16px;
+    padding: 8px 20px;
+    background: orange;
+    color: white;
+    display: inline-block;
+    border-radius: 8px;
+    cursor: pointer;
+    min-width: 50px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.create-btn {
+    display: block;
+    max-width: 150px;
+    text-align: center;
+    margin-bottom: 1em;
+    margin-right: 30px;
+    border: none;
+}
+
+.create-btn-router {
+    float: right;
+}
+
+.film-list {
+    list-style: none;
+    padding: 0;
+    clear: both;
+}
+
+.film-list p {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 30px;
+    border: 1px solid rgba(0, 0, 0, .04);
+    box-shadow: 0 0 40px rgba(0, 0, 0, .05);
+    margin: 20px auto;
+}
+
+.films-item__title {
+    width: 20%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.films-item__comment {
+    width: 100%;
+    line-height: 1.5;
+    margin: 50px 20px 0;
+    display: none;
+}
+
+.active .films-item__comment {
+    max-height: 500px;
+    display: block;
+}
+
+input, textarea {
+    display: block;
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 16px;
+    box-sizing: border-box;
+    margin: 20px 0;
+    border-radius: 8px;
+    border: 1px solid lightgrey;
+    outline: none;
+}
+
+::-webkit-input-placeholder {
+    color: rgba(0, 0, 0, 0.48);
+}
+
+::-moz-placeholder {
+    color: rgba(0, 0, 0, 0.48);
+}
+
+:-ms-input-placeholder {
+    color: rgba(0, 0, 0, 0.48);
+}
+
+::-webkit-input-placeholder {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+::-moz-placeholder {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+:-moz-placeholder {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+:-ms-input-placeholder {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+:focus::-webkit-input-placeholder {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+:focus::-moz-placeholder {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+:focus:-moz-placeholder {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+:focus:-ms-input-placeholder {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
