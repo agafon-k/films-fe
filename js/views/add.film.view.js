@@ -1,6 +1,6 @@
-define(['jquery', 'underscore', 'router', 'backbone', 'text!templates/add.film.html', 'filmModel',
-    'filmCollection', 'appView', 'doT'],
-    function ($, _, Router, Backbone, addFilmTmpl, FilmModel, filmCollection, AppView, doT) {
+define(['jquery', 'underscore', 'backbone', 'text!templates/add.film.html', '../models/film.model',
+        '../collections/films.collection', './app.view', 'doT', '../routers/router'],
+    function ($, _, Backbone, addFilmTmpl, FilmModel, filmCollection, AppView, doT, Router) {
         'use strict';
 
         return Backbone.View.extend({
@@ -21,6 +21,7 @@ define(['jquery', 'underscore', 'router', 'backbone', 'text!templates/add.film.h
 
             render: function () {
                 this.$el.html(this.template);
+                this.router = new Router();
                 return this;
             },
 
@@ -43,8 +44,7 @@ define(['jquery', 'underscore', 'router', 'backbone', 'text!templates/add.film.h
                 });
 
 
-                Backbone.history.navigate('//');
-                window.location.reload();
+                this.router.navigate('//');
             }
         });
     });

@@ -27,21 +27,13 @@ require.config({
         underscore: '../node_modules/underscore/underscore',
         backbone: '../node_modules/backbone/backbone',
         text: '../node_modules/requirejs-text/text',
-        doT: '../node_modules/dot/doT',
-        filmCollection: './collections/films.collection',
-        appModel: './models/app.model',
-        filmModel: './models/film.model',
-        router: './routers/router',
-        appView: './views/app.view',
-        addFilmView: './views/add.film.view',
-        editFilmView: './views/edit.film.view',
-        filmView: './views/film.view'
+        doT: '../node_modules/dot/doT'
     }
 });
 
 require([
     'backbone',
-    'appView',
+    './views/app.view',
     './routers/router'
 ], function (Backbone, AppView, Router) {
     new Router();

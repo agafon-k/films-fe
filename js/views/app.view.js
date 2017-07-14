@@ -4,10 +4,11 @@ define([
     'underscore',
     'backbone',
     'text!templates/main.html',
-    'appModel',
-    'filmCollection',
-    'filmView'
-], function ($, jQueryUi, _, Backbone, tmpl, AppModel, filmCollection, FilmItemView) {
+    '../collections/films.collection',
+    './film.view',
+    './films.collection.view',
+    '../routers/router'
+], function ($, jQueryUi, _, Backbone, tmpl, filmCollection, FilmItemView, FilmCollectionView, Router) {
     'use strict';
 
     var AppView = Backbone.View.extend({
@@ -21,18 +22,15 @@ define([
             'click .film-item': 'openComment'
         },
 
-        model: AppModel,
-
         initialize: function () {
-            this.collection = filmCollection;
             this.order = [];
             this.render();
         },
 
         render: function () {
+            this.router = new Router();
             this.$el.html(this.template());
-            this.renderFilms();
-
+            new FilmCollectionView();
             return this;
         },
 
@@ -68,10 +66,10 @@ define([
                     }
 
                     if (!(oldPosition === newPosition)) {
-                        $('body').addClass('disabled');
+                        $('.loader').addClass('active');
                         self.collection.updateCollection(currentId, newPosition, oldPosition)
                             .success(function (data, textStatus, xhr) {
-                                $('body').removeClass('disabled');
+                                $('.loader').removeClass('active');
                             })
                             .error(function (xhr, textStatus, errorThrown) {
                                 console.log('Error sortable update');
@@ -81,37 +79,9 @@ define([
             });
         },
 
-        renderFilms: function () {
-            var self = this;
-            this.collection.fetch({
-                success: function (response) {
-                    self.renderItems(response);
-                    self.addSortable();
-                },
-                error: function () {
-                    console.log('fetch error')
-                }
-            });
-        },
-
-        renderItems: function (response) {
-            _.each(response.models, function (item) {
-                this.renderItem(item);
-            }, this);
-        },
-
-        renderItem: function (item) {
-            var filmView = new FilmItemView({ model: item });
-            this.$el.find('ul').append(filmView.render().el);
-            this.order.push(filmView);
-        },
 
         createNewFilm: function () {
-            Backbone.history.navigate('//create');
-        },
-
-        openComment: function (e) {
-            $(e.currentTarget).toggleClass('active');
+            this.router.navigate('//create');
         }
     });
 

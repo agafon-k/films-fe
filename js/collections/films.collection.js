@@ -2,7 +2,7 @@ define([
         'underscore',
         'jquery',
         'backbone',
-        'filmModel'
+        '../models/film.model'
     ],
     function (_, $, Backbone, FilmModel) {
         'use strict';

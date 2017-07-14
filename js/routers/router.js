@@ -2,18 +2,16 @@ define([
         'require',
         'jquery',
         'backbone',
-        'addFilmView'
+        '../views/add.film.view'
     ],
     function (require, $, Backbone, addFilm) {
         'use strict';
 
-        var Router = Backbone.Router.extend({
+        return Backbone.Router.extend({
 
             routes: {
-                '': 'index',
-                '/': 'index',
-                'create': 'createNew',
-                'edit': 'editFilm'
+                '/*': 'index',
+                'create': 'createNew'
             },
 
             createNew: function () {
@@ -21,5 +19,4 @@ define([
             }
         });
 
-        return Router;
-    });
+});

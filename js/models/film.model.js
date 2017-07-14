@@ -2,8 +2,7 @@ define([
         'underscore',
         'jquery',
         'backbone',
-        'filmCollection',
-        'appModel'
+        '../collections/films.collection'
     ],
     function (_, $, Backbone) {
         'use strict';
@@ -35,7 +34,7 @@ define([
                         break;
                 }
             },
-            // Now lets override the sync function to use our custom URLs
+
             sync: function (method, model, options) {
                 options || (options = {});
                 !(method === 'read') ? (options.url = this.getCustomUrl(method.toLowerCase())) : options.url;

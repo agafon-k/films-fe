@@ -2,19 +2,6 @@ body {
     margin: 0;
 }
 
-body.disabled {
-    overflow: hidden;
-}
-
-body.disabled .overlay {
-    width: 100vw;
-    height: 100vh;
-    position: absolute;
-    z-index: 100;
-    background: #dedede;
-    opacity: .2;
-}
-
 #main {
     max-width: 1236px;
     margin: 0 auto;
@@ -175,4 +162,29 @@ input, textarea {
 :focus:-ms-input-placeholder {
     opacity: 0;
     transition: opacity 0.3s ease;
+}
+
+.loader {
+    display: none;
+}
+
+.loader.active {
+    position: absolute;
+    display: block;
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid orange;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    animation: spin 2s linear infinite;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
