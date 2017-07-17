@@ -3,11 +3,10 @@ define([
         'underscore',
         'backbone',
         'text!templates/add.film.html',
-        '../models/film.model',
         'doT',
         '../routers/router'
     ],
-    function ($, _, Backbone, addFilmTmpl, filmModel, doT, Router) {
+    function ($, _, Backbone, addFilmTmpl, doT, Router) {
         'use strict';
 
         var FilmView = Backbone.View.extend({
@@ -26,7 +25,6 @@ define([
 
             render: function () {
                 this.renderContent();
-                this.router = new Router();
                 return this;
             },
 
@@ -49,7 +47,7 @@ define([
 
                 this.model.save(data);
 
-                this.router.navigate('//');
+                Backbone.history.navigate('//', true);
             }
         });
 

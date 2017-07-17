@@ -1,11 +1,11 @@
 define(['jquery', 'underscore', 'backbone', 'text!templates/add.film.html', '../models/film.model',
-        '../collections/films.collection', './app.view', 'doT', '../routers/router'],
-    function ($, _, Backbone, addFilmTmpl, FilmModel, filmCollection, AppView, doT, Router) {
+        '../collections/films.collection', './app.view', '../routers/router', 'doT'],
+    function ($, _, Backbone, addFilmTmpl, FilmModel, filmCollection, AppView, Router, doT) {
         'use strict';
 
         return Backbone.View.extend({
 
-            el: '#main',
+            el: '#film',
 
             template: doT.template(addFilmTmpl),
 
@@ -17,11 +17,12 @@ define(['jquery', 'underscore', 'backbone', 'text!templates/add.film.html', '../
 
             initialize: function () {
                 this.render();
+                // Backbone.history.loadUrl();
             },
 
             render: function () {
                 this.$el.html(this.template);
-                this.router = new Router();
+                // this.router = new Router();
                 return this;
             },
 
@@ -40,11 +41,11 @@ define(['jquery', 'underscore', 'backbone', 'text!templates/add.film.html', '../
                 ).done(function () {
                     console.log('Success!')
                 }).fail(function (model, xhr, options) {
-                    console.log('text status ' + xhr + ', err ' + options)
+                    console.log(xhr)
                 });
 
 
-                this.router.navigate('//');
+                Backbone.history.navigate('//', {trigger:true});
             }
         });
     });

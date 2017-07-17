@@ -45,6 +45,15 @@ define([
             destroy: function () {
                 this.collection.remove(this);
                 Backbone.Model.prototype.destroy.apply(this, arguments);
+            },
+
+            validation: {
+                title: {
+                    required: true
+                },
+                imdbId: {
+                    maxLength: 9
+                }
             }
         });
 
