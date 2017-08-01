@@ -37,7 +37,7 @@ define([
         },
 
         deleteFilm: function () {
-            this.model.destroy();
+            this.model.destroy({wait: true});
         },
 
         editFilm: function () {

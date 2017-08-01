@@ -15,7 +15,8 @@ body.disabled .overlay {
     opacity: .2;
 }
 
-#main {
+#main,
+#add-film {
     max-width: 1236px;
     margin: 0 auto;
     font-family: sans-serif;
@@ -44,6 +45,9 @@ img {
 .buttons {
     display: inline-block;
     white-space: nowrap;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: 0;
 }
 
 .btn {
@@ -81,36 +85,73 @@ img {
 .film-list p {
     display: inline-block;
     margin: 0 20px;
+    width: 10%;
 }
 
 li {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
     padding: 30px;
     border: 1px solid rgba(0, 0, 0, .04);
     box-shadow: 0 0 40px rgba(0, 0, 0, .05);
     margin: 20px auto;
 }
 
-.films-item__title {
-    width: 20%;
+.films-item__content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+p.films-item__title {
+    width: 30%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
 .films-item__comment {
-    width: 100%;
     line-height: 1.5;
-    margin: 50px 20px 0;
+  font-size: .9rem;
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px solid rgba(128, 128, 128, 0.48);
+    border-radius: 10px;
     display: none;
 }
 
 .active .films-item__comment {
     max-height: 500px;
     display: block;
+}
+
+.films-item__rating {
+  width: 90px;
+  min-width: 90px;
+  background: 0 -3px url(./images/stars.png);
+  height: 1rem;
+  background-size: cover;
+}
+
+.films-item__rating-4 {
+  background: 0 -22px url("./images/stars.png");
+  background-size: cover;
+
+}
+
+.films-item__rating-3 {
+  background: 0 -40px url("./images/stars.png");
+  background-size: cover;
+}
+
+.films-item__rating-2 {
+  background: 0 -60px url("./images/stars.png");
+  background-size: cover;
+}
+
+.films-item__rating-1 {
+  background: 0 -80px url("./images/stars.png");
+  background-size: cover;
 }
 
 input, textarea {
@@ -175,4 +216,29 @@ input, textarea {
 :focus:-ms-input-placeholder {
     opacity: 0;
     transition: opacity 0.3s ease;
+}
+
+@media all and (max-width: 700px){
+  .films-item__content {
+    flex-direction: column;
+  }
+
+  img {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .film-list p {
+    width: 100%;
+    text-align: center;
+    line-height: 1.2;
+  }
+
+  p.films-item__rating {
+    width: 10%;
+  }
+
+  .buttons {
+    margin: 1rem auto;
+  }
 }

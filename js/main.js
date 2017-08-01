@@ -46,5 +46,5 @@ require([
 ], function (Backbone, AppView, Router) {
     new Router();
     Backbone.history.start();
-    new AppView();
+    // new AppView();
 });

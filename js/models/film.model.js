@@ -25,7 +25,7 @@ define([
             getCustomUrl: function (method) {
                 switch (method) {
                     case 'create':
-                        return 'http://localhost:3000/save';
+                        return 'http://localhost:3000/film';
                         break;
                     case 'update':
                         return 'http://localhost:3000/save/film/' + this.id;
@@ -35,17 +35,19 @@ define([
                         break;
                 }
             },
-            // Now lets override the sync function to use our custom URLs
+
             sync: function (method, model, options) {
-                options || (options = {});
+                options || (options = {wait: true});
                 !(method === 'read') ? (options.url = this.getCustomUrl(method.toLowerCase())) : options.url;
 
                 return Backbone.sync.apply(this, arguments);
             },
 
-            destroy: function () {
-                this.collection.remove(this);
-                Backbone.Model.prototype.destroy.apply(this, arguments);
+            validation: {
+                filmTitle: {
+                    required: true,
+                    message: 'ssddde'
+                }
             }
         });
 

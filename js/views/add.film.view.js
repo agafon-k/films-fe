@@ -1,11 +1,11 @@
 define(['jquery', 'underscore', 'router', 'backbone', 'text!templates/add.film.html', 'filmModel',
-    'filmCollection', 'appView', 'doT'],
+        'filmCollection', 'appView', 'doT'],
     function ($, _, Router, Backbone, addFilmTmpl, FilmModel, filmCollection, AppView, doT) {
         'use strict';
 
         return Backbone.View.extend({
 
-            el: '#main',
+            el: '#add-film',
 
             template: doT.template(addFilmTmpl),
 
@@ -35,16 +35,18 @@ define(['jquery', 'underscore', 'router', 'backbone', 'text!templates/add.film.h
                 };
 
                 this.model.save(
-                    data
-                ).done(function () {
-                    console.log('Success!')
-                }).fail(function (model, xhr, options) {
-                    console.log('text status ' + xhr + ', err ' + options)
-                });
+                    data, {
+                        wait: true,
+                        success: function () {
+                            console.log('Success!');
+                        },
+                        error: function (model, xhr, options) {
+                            console.log(model);
+                        }
+                    });
 
 
                 Backbone.history.navigate('//');
-                window.location.reload();
             }
         });
     });
