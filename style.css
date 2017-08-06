@@ -128,29 +128,29 @@ p.films-item__title {
 .films-item__rating {
   width: 90px;
   min-width: 90px;
-  background: 0 -3px url(./images/stars.png);
-  height: 1rem;
+  background: 0 -4px url(./images/stars.png);
+  height: 1.1rem;
   background-size: cover;
 }
 
 .films-item__rating-4 {
-  background: 0 -22px url("./images/stars.png");
+  background: 0 -30px url("./images/stars.png");
   background-size: cover;
 
 }
 
 .films-item__rating-3 {
-  background: 0 -40px url("./images/stars.png");
+  background: 0 -56px url("./images/stars.png");
   background-size: cover;
 }
 
 .films-item__rating-2 {
-  background: 0 -60px url("./images/stars.png");
+  background: 0 -80px url("./images/stars.png");
   background-size: cover;
 }
 
 .films-item__rating-1 {
-  background: 0 -80px url("./images/stars.png");
+  background: 0 -105px url("./images/stars.png");
   background-size: cover;
 }
 
